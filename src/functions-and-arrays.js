@@ -138,24 +138,13 @@ const wordsUnique = [
   "bring",
 ];
 
-// function uniquifyArray(array1) {
-//   let wordsFiltered = array1.filter((item, index) => {
-//     array1.indexOf(item) === index;
-//   });
-//   return wordsFiltered;
-// }
-
-// console.log(uniquifyArray(wordsUnique));
-
 function uniquifyArray(array) {
   let uniqueWords = array.filter((word, index) => {
     return array.indexOf(word) === index;
   });
   return uniqueWords;
 }
-console.log(
-  `The unique set of words within the... ${uniquifyArray(wordsUnique)}`
-);
+console.log(`The unique set of words within is: ${uniquifyArray(wordsUnique)}`);
 
 // Iteration #6: Find elements
 const wordsFind = [

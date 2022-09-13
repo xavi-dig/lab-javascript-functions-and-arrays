@@ -62,11 +62,11 @@ function sum(numArr) {
   let finalSum = 0;
 
   for (let i = 0; i < numArr.length; i++) {
-    if (typeof numArr[i] == "string") {
+    if (typeof numArr[i] === "string") {
       finalSum += numArr[i].length;
-    } else if (typeof numArr[i] == "number") {
+    } else if (typeof numArr[i] === "number") {
       finalSum += numArr[i];
-    } else if (typeof numArr[i] == "boolean") {
+    } else if (typeof numArr[i] === "boolean") {
       finalSum += Number(numArr[i]);
     }
   }
@@ -106,10 +106,22 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(words) {
+  let fNum = [];
+  for (let i = 0; i < words.length; i++) {
+    fNum[i] = words[i].length;
+  }
+  return averageNumbers(fNum);
+}
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]; ya declarada en el ejercicio 3
+// should return: 5.7
+function avg(array) {
+  return sum(array) / array.length;
+}
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -126,7 +138,24 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+// function uniquifyArray(array1) {
+//   let wordsFiltered = array1.filter((item, index) => {
+//     array1.indexOf(item) === index;
+//   });
+//   return wordsFiltered;
+// }
+
+// console.log(uniquifyArray(wordsUnique));
+
+function uniquifyArray(array) {
+  let uniqueWords = array.filter((word, index) => {
+    return array.indexOf(word) === index;
+  });
+  return uniqueWords;
+}
+console.log(
+  `The unique set of words within the... ${uniquifyArray(wordsUnique)}`
+);
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -140,7 +169,11 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, wordsToSearch) {
+  return wordsArray.includes(wordsToSearch);
+}
+
+console.log(doesWordExist(wordsFind, "matter"));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -157,7 +190,12 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, words) {
+  let wordIsRepeated = 0;
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -225,7 +263,35 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let product = 0;
+  let maxProd = 0;
+
+  //Filas
+  for (let i = 0; i < array.length; i++) {
+    //Columnas
+    for (let j = 0; j < array.length; j++) {
+      //horizontal
+      if (j - 3 >= 0) {
+        product =
+          array[i][j] * array[i][j - 1] * array[i][j - 2] * array[i][j - 3];
+        if (product > maxProd) axProd = product;
+      }
+
+      //vertical
+      if (i - 3 >= 0) {
+        product =
+          array[i][j] * array[i - 1][j] * array[i - 2][j] * array[i - 3][j];
+        if (product > maxProd) maxProd = product;
+      }
+    }
+  }
+  return maxProd;
+}
+
+console.log(
+  `Greatest product of 4 adjacents numbers is ${greatestProduct(matrix)}`
+);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

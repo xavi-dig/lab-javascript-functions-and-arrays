@@ -144,7 +144,7 @@ function uniquifyArray(array) {
   });
   return uniqueWords;
 }
-console.log(`The unique set of words within is: ${uniquifyArray(wordsUnique)}`);
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = [
